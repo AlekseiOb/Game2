@@ -10,8 +10,9 @@ public abstract class PersonBase {
     private int stamina;  // выносливость
     private int gold;  // золото
     private boolean isAlive;
+    private Coordinates coordinates; // координаты
 
-    public PersonBase(String name, int health, int strength, int agility, int defense, int mana, int stamina, int gold) {
+    public PersonBase(String name, Coordinates coordinates, int health, int strength, int agility, int defense, int mana, int stamina, int gold) {
         this.name = name;
         this.health = health;
         this.strength = strength;
@@ -21,6 +22,7 @@ public abstract class PersonBase {
         this.stamina = stamina;
         this.gold = gold;
         this.isAlive = true;
+        this.coordinates = coordinates;
     }
 
     public abstract void attack(PersonBase target);     // Метод атаки
@@ -34,5 +36,13 @@ public abstract class PersonBase {
     @Override
     public String toString() {
         return name;
+    }
+
+    public String getName() {
+        return name;
+    }
+
+    public Coordinates getCoordinates() {
+        return coordinates;
     }
 }

@@ -2,8 +2,8 @@ package Person;
 
 // Снайпер
 public class Sniper extends PersonBase {
-    public Sniper(String name, int health, int strength, int agility, int defense, int mana, int stamina, int gold) {
-        super(name, health, strength, agility, defense, mana, stamina, gold);
+    public Sniper(String name, Coordinates coordinates, int health, int strength, int agility, int defense, int mana, int stamina, int gold) {
+        super(name, coordinates, health, strength, agility, defense, mana, stamina, gold);
     }
 
     public void attack(PersonBase target) {
