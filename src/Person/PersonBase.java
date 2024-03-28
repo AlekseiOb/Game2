@@ -9,10 +9,11 @@ public abstract class PersonBase {
     private int mana;  // магическая сила
     private int stamina;  // выносливость
     private int gold;  // золото
+    private int initiative; // инициатива
     private boolean isAlive;
     private Coordinates coordinates; // координаты
 
-    public PersonBase(String name, Coordinates coordinates, int health, int strength, int agility, int defense, int mana, int stamina, int gold) {
+    public PersonBase(String name, Coordinates coordinates, int health, int strength, int agility, int defense, int mana, int stamina, int gold, int initiative) {
         this.name = name;
         this.health = health;
         this.strength = strength;
@@ -23,6 +24,7 @@ public abstract class PersonBase {
         this.gold = gold;
         this.isAlive = true;
         this.coordinates = coordinates;
+        this.initiative = initiative;
     }
 
     public abstract void attack(PersonBase target);     // Метод атаки
@@ -33,16 +35,20 @@ public abstract class PersonBase {
         return isAlive;         // Метод проверки жив ли персонаж
     }
 
+    // Реализация метода step() из интерфейса
+    public void step() {
+        // логика для метода step()
+    }
     @Override
-    public String toString() {
-        return name;
+    public String toString() {return name;
     }
 
-    public String getName() {
-        return name;
+    public String getName() {return name;
     }
 
-    public Coordinates getCoordinates() {
-        return coordinates;
+    public Coordinates getCoordinates() {return coordinates;
+    }
+
+    public int getInitiative() {return initiative;
     }
 }

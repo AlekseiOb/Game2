@@ -1,6 +1,7 @@
 import Person.*;
 
 import java.util.ArrayList;
+import java.util.Comparator;
 import java.util.List;
 import java.util.Random;
 
@@ -17,6 +18,10 @@ public class Main {
 
         System.out.println("\nПоиск ближайшего противника:");
         searchNearestEnemies(team1, team2);
+
+        System.out.println("\nХод персонажей с наивысшей инициативой:");
+        performTeamAction(team1);
+        performTeamAction(team2);
     }
 
     private static List<PersonBase> createTeam1() {
@@ -31,7 +36,7 @@ public class Main {
                     team.add(new Wizard(generateUniqueName(team), new Coordinates(i, 0), 150, 12, 6, 4, 50, 70, 3));
                     break;
                 case 2:
-                    team.add(new Archer(generateUniqueName(team), new Coordinates(i, 0), 120, 15, 8, 3, 0, 60, 2));
+                    team.add(new Archer(generateUniqueName(team), new Coordinates(i, 0), 120, 15, 8, 3, 0, 60, 2, 10));
                     break;
                 case 3:
                     team.add(new Spearman(generateUniqueName(team), new Coordinates(i, 0), 130, 18, 7, 6, 0, 55, 4));
@@ -97,6 +102,18 @@ public class Main {
             if (archer instanceof Archer) {
                 ((Archer) archer).searchNearestEnemy(team1);
             }
+        }
+    }
+    private static void performTeamAction(List<PersonBase> team) {
+        // Создание нового списка для сортировки персонажей по инициативе
+        List<PersonBase> sortedTeam = new ArrayList<>(team);
+
+        // Сортировка списка по убыванию инициативы
+        sortedTeam.sort(Comparator.comparingInt(PersonBase::getInitiative).reversed());
+
+        // Выполнение действий для каждого персонажа в порядке инициативы
+        for (PersonBase person : sortedTeam) {
+            person.step();
         }
     }
 }
