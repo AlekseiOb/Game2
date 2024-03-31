@@ -16,7 +16,7 @@ public class Main {
         System.out.println("\nВторая команда:");
         printTeam(team2);
 
-        System.out.println("\nПоиск ближайшего противника:");
+        System.out.println("\nПоиск ближайших противников:");
         searchNearestEnemies(team1, team2);
 
         System.out.println("\nХод персонажей с наивысшей инициативой:");
@@ -92,18 +92,23 @@ public class Main {
             System.out.println(person.getClass().getSimpleName() + ": " + person.getName() + " - Координаты: " + person.getCoordinates());
         }
     }
+
     private static void searchNearestEnemies(List<PersonBase> team1, List<PersonBase> team2) {
         for (PersonBase archer : team1) {
             if (archer instanceof Archer) {
-                ((Archer) archer).searchNearestEnemy(team2);
+                List<PersonBase> enemies = new ArrayList<>(team2); // Создаем копию списка противников
+                ((Archer) archer).searchNearestEnemy(enemies);
             }
         }
+
         for (PersonBase archer : team2) {
             if (archer instanceof Archer) {
-                ((Archer) archer).searchNearestEnemy(team1);
+                List<PersonBase> enemies = new ArrayList<>(team1); // Создаем копию списка противников
+                ((Archer) archer).searchNearestEnemy(enemies);
             }
         }
     }
+
     private static void performTeamAction(List<PersonBase> team) {
         // Создание нового списка для сортировки персонажей по инициативе
         List<PersonBase> sortedTeam = new ArrayList<>(team);

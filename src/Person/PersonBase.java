@@ -49,6 +49,10 @@ public abstract class PersonBase {
     public Coordinates getCoordinates() {return coordinates;
     }
 
+    public void setCoordinates(Coordinates coordinates) {
+        this.coordinates = coordinates;
+    }
+
     public int getInitiative() {return initiative;
     }
 }
