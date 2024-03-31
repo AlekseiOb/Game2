@@ -31,12 +31,12 @@ public class Spearman extends PersonBase {
         Coordinates enemyCoordinates = nearestEnemy.getCoordinates();
         Coordinates currentCoordinates = getCoordinates();
 
-        // Разница между координатами по X и Y
+        // Вычесляем разницу между координатами по X и Y
         int dX = enemyCoordinates.getX() - currentCoordinates.getX();
         int dY = enemyCoordinates.getY() - currentCoordinates.getY();
 
         if (Math.abs(dX) <= 1 && Math.abs(dY) <= 1) {
-            // Противник находится в соседней клетке, атакуем
+            // Противник находится в соседней клетке, можно атакавать
             attack(nearestEnemy);
         } else {
             // Противник далеко, двигаемся в его направлении
@@ -139,7 +139,7 @@ public class Spearman extends PersonBase {
 
     // Метод для получения списка врагов из других команд
     private List<PersonBase> getEnemies() {
-        // Реализация получения списка врагов
-        return null; // Пример, замените на вашу реализацию
+        // Реализация метода
+        return null;
     }
 }

@@ -113,7 +113,7 @@ public class Main {
         // Создание нового списка для сортировки персонажей по инициативе
         List<PersonBase> sortedTeam = new ArrayList<>(team);
 
-        // Сортировка списка по убыванию инициативы
+        // Сортировка списка
         sortedTeam.sort(Comparator.comparingInt(PersonBase::getInitiative).reversed());
 
         // Выполнение действий для каждого персонажа в порядке инициативы
