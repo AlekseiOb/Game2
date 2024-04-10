@@ -21,4 +21,8 @@ public class Wizard extends PersonBase {
 
     public void SpecialAbility() {
     }
+    @Override
+    public String getType() {
+        return "Wizard"; // Пример для класса Spearman
+    }
 }

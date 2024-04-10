@@ -21,4 +21,8 @@ public class Sniper extends PersonBase {
 
     public void SpecialAbility() {
     }
+    @Override
+    public String getType() {
+        return "Sniper"; // Пример для класса Spearman
+    }
 }

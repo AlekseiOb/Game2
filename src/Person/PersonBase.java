@@ -55,4 +55,8 @@ public abstract class PersonBase {
 
     public int getInitiative() {return initiative;
     }
+
+    public String getType() {
+        return "Person"; // Пример общего типа персонажа
+    }
 }

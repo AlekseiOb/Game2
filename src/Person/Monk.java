@@ -21,4 +21,8 @@ public class Monk extends PersonBase {
 
     public void SpecialAbility() {
     }
+    @Override
+    public String getType() {
+        return "Monk"; // Пример для класса Spearman
+    }
 }

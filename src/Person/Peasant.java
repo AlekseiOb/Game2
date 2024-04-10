@@ -20,5 +20,9 @@ public class Peasant extends PersonBase {
 
     public void defend() {
     }
+    @Override
+    public String getType() {
+        return "Peasant"; // Пример для класса Spearman
+    }
 
 }

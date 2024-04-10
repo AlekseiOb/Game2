@@ -68,4 +68,8 @@ public class Archer extends PersonBase {
             System.out.println(getName() + " не найдено ближайших противников.");
         }
     }
+    @Override
+    public String getType() {
+        return "Archer"; // Пример для класса Spearman
+    }
 }
