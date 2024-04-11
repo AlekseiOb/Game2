@@ -16,17 +16,17 @@ public class Peasant extends PersonBase {
             return;
         }
 
-        // Поиск ближайшего лучника-арчера в соответствующей команде
+        // Поиск ближайшего лучника в соответствующей команде
         List<PersonBase> archersInTeam = getArchers(team); // Ищем лучников в переданной команде
         if (!archersInTeam.isEmpty()) {
-            // Если найден лучник-арчер в переданной команде, передаем ему стрелы
+            // Если найден лучник в переданной команде, передаем ему стрелы
             for (PersonBase archer : archersInTeam) {
-                ((Archer) archer).receiveArrow(); // Примерный вызов метода передачи стрел
+                ((Archer) archer).receiveArrow(); // вызов метода передачи стрел
                 System.out.println(getName() + " передает стрелы лучнику " + archer.getName());
             }
         } else {
-            // Если лучник-арчер не обнаружен в переданной команде, крестьянин двигается дальше
-            move(Direction.DOWN); // Примерный вызов движения вперед, измените на вашу логику
+            // Если лучник не обнаружен в переданной команде, крестьянин двигается дальше
+            move(Direction.DOWN); // вызов движения вперед
             System.out.println(getName() + " продолжает движение вперед.");
         }
     }
@@ -69,9 +69,9 @@ public class Peasant extends PersonBase {
         System.out.println(getName() + " двигается в направлении " + direction);
     }
 
-    // Метод для передачи стрел лучнику-Archer, если он находится на соседней клетке
+    // Метод для передачи стрел лучнику, если он находится на соседней клетке
     private void passArrowToArcher(List<PersonBase> archers) {
-        // Проверяем, есть ли лучник-Archer на соседней клетке
+        // Проверяем, есть ли лучник на соседней клетке
         for (PersonBase archer : archers) {
             Coordinates archerCoordinates = archer.getCoordinates();
             Coordinates peasantCoordinates = getCoordinates();
@@ -85,7 +85,7 @@ public class Peasant extends PersonBase {
                 return;
             }
         }
-        // Если лучник-арчер не обнаружен, выводим сообщение об этом
+        // Если лучник не обнаружен, выводим сообщение об этом
         System.out.println(getName() + " не обнаружил лучника на соседних клетках и продолжает движение.");
     }
 
@@ -102,7 +102,7 @@ public class Peasant extends PersonBase {
     }
     @Override
     public String getType() {
-        return "Peasant"; // Пример для класса Spearman
+        return "Peasant";
     }
 
 }

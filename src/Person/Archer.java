@@ -76,6 +76,6 @@ public class Archer extends PersonBase {
     }
     @Override
     public String getType() {
-        return "Archer"; // Пример для класса Spearman
+        return "Archer";
     }
 }

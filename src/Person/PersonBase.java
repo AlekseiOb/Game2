@@ -65,7 +65,7 @@ public abstract class PersonBase {
     }
 
     public String getType() {
-        return "Person"; // Пример общего типа персонажа
+        return "Person";
     }
 
     public String getInfo() {
