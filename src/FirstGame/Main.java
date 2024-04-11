@@ -29,8 +29,8 @@ public class Main {
             performTeamAction(team2);
 
             // Вывод информации о последних действиях каждого персонажа
-//            printLastActions(team1);
-//            printLastActions(team2);
+            printLastActions(team1);
+            printLastActions(team2);
 
 
             // Визуализация состояния поля
