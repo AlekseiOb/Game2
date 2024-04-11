@@ -42,6 +42,12 @@ public class Archer extends PersonBase {
         // Реализация специальной способности для лучника
     }
 
+    // Метод для принятия стрелы от крестьянина
+    public void receiveArrow() {
+        arrows++; // Увеличиваем количество стрел у лучника
+        System.out.println(getName() + " принял стрелу от крестьянина.");
+    }
+
 
     public void step(List<PersonBase> enemies) {
         // Реализация метода шага для лучника

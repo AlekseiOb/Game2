@@ -8,10 +8,13 @@ import java.util.Random;
 
 public class Main {
     private static final int MAX_TURNS = 10;
+    public static List<PersonBase> team1;
+    public static List<PersonBase> team2;
 
     public static void main(String[] args) {
         List<PersonBase> team1 = createTeam1();
         List<PersonBase> team2 = createTeam2();
+        performActions(team1, team2);
 
         System.out.println("Первая команда:");
         printTeam(team1);
@@ -25,6 +28,11 @@ public class Main {
             performTeamAction(team1);
             performTeamAction(team2);
 
+            // Вывод информации о последних действиях каждого персонажа
+//            printLastActions(team1);
+//            printLastActions(team2);
+
+
             // Визуализация состояния поля
             View.view(team1, team2);
 
@@ -33,13 +41,6 @@ public class Main {
                 break;
             }
         }
-
-//        System.out.println("\nПоиск ближайших противников:");
-//        searchNearestEnemies(team1, team2);
-//
-//        System.out.println("\nХод персонажей с наивысшей инициативой:");
-//        performTeamAction(team1);
-//        performTeamAction(team2);
 
         // Вывод игрового поля в консоль
         View.view(team1, team2);
@@ -144,7 +145,24 @@ public class Main {
         // Выполнение действий для каждого персонажа в порядке инициативы
         for (PersonBase person : sortedTeam) {
             person.step();
-//
+        }
+    }
+
+    private static void performActions(List<PersonBase> team1, List<PersonBase> team2) {
+        for (int turn = 1; turn <= MAX_TURNS; turn++) {
+            System.out.println("Ход " + turn + ":");
+            performTeamAction(team1);
+            performTeamAction(team2);
+            // Визуализация состояния поля
+            View.view(team1, team2);
+            if (isGameOver(team1, team2)) {
+                break;
+            }
+        }
+    }
+    private static void printLastActions(List<PersonBase> team) {
+        for (PersonBase person : team) {
+            System.out.println(person.getInfo());
         }
     }
 }

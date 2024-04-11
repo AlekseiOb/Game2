@@ -12,6 +12,8 @@ public abstract class PersonBase {
     private int initiative; // инициатива
     private boolean isAlive;
     private Coordinates coordinates; // координаты
+    private String lastAction;
+
 
     public PersonBase(String name, Coordinates coordinates, int health, int strength, int agility, int defense, int mana, int stamina, int gold, int initiative) {
         this.name = name;
@@ -33,6 +35,12 @@ public abstract class PersonBase {
     public abstract void SpecialAbility();     // Метод использования специальной способности
     public boolean isAlive() {
         return isAlive;         // Метод проверки жив ли персонаж
+    }
+    public String getLastAction() {
+        return lastAction;
+    }
+    public void setLastAction(String action) {
+        this.lastAction = action;
     }
 
     // Реализация метода step() из интерфейса
@@ -58,5 +66,26 @@ public abstract class PersonBase {
 
     public String getType() {
         return "Person"; // Пример общего типа персонажа
+    }
+
+    public String getInfo() {
+        StringBuilder info = new StringBuilder();
+        info.append(getClass().getSimpleName()).append(" ").append(getName()).append(" - ");
+
+        // Действия за последний ход
+        // Если персонаж был излечен
+        if (getLastAction() != null && getLastAction().equals("heal")) {
+            info.append("Лечил союзника");
+        }
+        // Если была выполнена магия возрождения
+        else if (getLastAction() != null && getLastAction().equals("resurrection")) {
+            info.append("Возрождал выбранного союзника");
+        }
+        // Если персонаж просто сделал шаг
+        else {
+            info.append("Сделал шаг");
+        }
+
+        return info.toString();
     }
 }
